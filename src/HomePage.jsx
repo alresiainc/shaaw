@@ -51,7 +51,7 @@ const HomePage = () => {
       message: customizedMessage,
       subject: "New Form Submitted",
       email: "krogstadracheal@gmail.com",
-      name: "Bellaliant",
+      name: "Project Sheww",
     };
     console.log(data);
 
