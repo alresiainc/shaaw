@@ -50,8 +50,8 @@ const HomePage = () => {
       sender_email: import.meta.env.APP_SENDER_ADDRESS,
       message: customizedMessage,
       subject: "New Form Submitted",
-      email: "fidelisepeter@gmail.com",
-      name: "Project",
+      email: "krogstadracheal@gmail.com",
+      name: "Cogeco",
     };
     console.log(data);
 
